@@ -1,5 +1,6 @@
 const puzzle_difficulty = 3;
 
+var timer;
 var canvas;
 var stage;
 var img;
@@ -87,6 +88,25 @@ function shuffleAndStartPuzzle(e) {
     canvas.removeEventListener('touchstart', shuffleAndStartPuzzle);
     canvas.addEventListener('mousedown', handlePieceMove, false);
     canvas.addEventListener('touchstart', handlePieceMove, false);
+    startTimer();
+}
+
+function startTimer() {
+    var timeLeft = 60;
+    timer = setInterval(() => {
+        timeLeft--;
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById('timer').textContent =
+            (minutes < 10 ? '0' : '') + minutes + ':' +
+            (seconds < 10 ? '0' : '') + seconds;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert("Time's up! You Lose!");
+            gameOver();
+        }
+    }, 1000);
 }
 
 function shufflePieces() {
@@ -232,6 +252,7 @@ function resetPuzzleAndCheckWin() {
 }
 
 function gameOver() {
+    clearInterval(timer);
     canvas.removeEventListener('mousedown', handlePieceMove);
     canvas.removeEventListener('touchstart', handlePieceMove);
     init();
