@@ -7,4 +7,4 @@
   - Harshit Patel (210424)
 - Deliverables
   - Puzzle Game: [Game Code](https://github.com/harshitptl21/CS455/tree/main/Game)
-  - Deployed Version: [Play](https://home.iitk.ac.in/~harshitptl21/CS455/Game)
+  - Deployed Version: [Play](https://harshitptl21.github.io/CS455/)
