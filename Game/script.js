@@ -15,7 +15,7 @@ var mouse;
 
 function init() {
     img = new Image();
-    img.src = "images/Dog.jpg";
+    img.src = "Game/images/Dog.jpg";
     img.addEventListener('load', setupPuzzle, false);
 }
 
