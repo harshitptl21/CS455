@@ -253,6 +253,7 @@ function resetPuzzleAndCheckWin() {
 
 function gameOver() {
     clearInterval(timer);
+    document.getElementById('timer').textContent = "01:00"
     canvas.removeEventListener('mousedown', handlePieceMove);
     canvas.removeEventListener('touchstart', handlePieceMove);
     init();
