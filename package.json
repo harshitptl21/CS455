@@ -1,0 +1,17 @@
+{
+  "name": "cs455-main",
+  "version": "1.0.0",
+  "description": "- Group Member:   - Aakash Yadav (210010)   - Harshit Patel (210424) - Deployed Game: [Play](https://harshitptl21.github.io/CS455/)",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0"
+  }
+}
