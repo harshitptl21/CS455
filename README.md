@@ -16,6 +16,12 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 - [Problem Statement](https://github.com/harshitptl21/CS455/blob/main/Problem_Statements/Assignment_2.pdf)
 - Task/Planning (Details and task assignment is in the [Issues (label:Assignment 2)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+2%22)
   - Add Code Quality Metrics
+    - **ESLint:** Lints and enforces coding standards for JavaScript.
   - Refactor Code
   - Add Unit Tests
   - Continuous Integration
+- Running Locally
+  - Install dependencies:
+    - npm install
+  - Run linters:
+    - For JavaScript: npm run lint:js
