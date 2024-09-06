@@ -18,6 +18,7 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Add Code Quality Metrics
     - **ESLint:** Lints and enforces coding standards for JavaScript.
     - **Stylelint:** Lints and enforces coding standards for CSS.
+    - **HTMLHint:** Lints and enforces coding standards for HTML.
   - Refactor Code
   - Add Unit Tests
   - Continuous Integration
@@ -27,3 +28,4 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Run linters:
     - For JavaScript: npm run lint:js
     - For CSS: npm run lint:css
+    - For HTML: npm run lint:html
