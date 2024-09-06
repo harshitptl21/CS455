@@ -27,3 +27,6 @@ jobs:
 
       - name: Run Stylelint
         run: npm run lint:css
+
+      - name: Run HTMLHint
+        run: npm run lint:html
