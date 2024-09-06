@@ -1,0 +1,7 @@
+{
+    "rules": {
+      "max-nesting-depth": 3,
+      "no-duplicate-selectors": true,
+      "block-no-empty": true
+    }
+  }
