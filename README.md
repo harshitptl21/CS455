@@ -20,13 +20,15 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
     - **eslint-plugin-complexity:** Checks code complexity.
     - **Stylelint:** Lints and enforces coding standards for CSS.
     - **HTMLHint:** Lints and enforces coding standards for HTML.
+    - **JSCPD:** Detects code duplication across the Game codebase.
   - Refactor Code
   - Add Unit Tests
   - Continuous Integration
 - Running Locally
   - Install dependencies:
     - npm install
-  - Run linters:
-    - For JavaScript: npm run lint:js
+  - Run Code Quality Checkers:
+    - For JavaScript and Code Complexity: npm run lint:js
     - For CSS: npm run lint:css
     - For HTML: npm run lint:html
+    - For Duplication: npm run check:duplication
