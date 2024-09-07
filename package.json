@@ -6,7 +6,8 @@
   "scripts": {
     "lint:js": "eslint .",
     "lint:css": "stylelint '**/*.css'",
-    "lint:html": "htmlhint '**/*.html'"
+    "lint:html": "htmlhint '**/*.html'",
+    "check:duplication": "jscpd --min-lines 6 ./Game index.html"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "eslint-plugin-complexity": "^1.0.2",
     "globals": "^15.9.0",
     "htmlhint": "^1.1.4",
+    "jscpd": "^4.0.5",
     "stylelint": "^16.9.0"
   }
 }
