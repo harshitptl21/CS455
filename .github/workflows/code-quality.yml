@@ -30,3 +30,6 @@ jobs:
 
       - name: Run HTMLHint
         run: npm run lint:html
+
+      - name: Run JSCPD
+        run: npm run check:duplication
