@@ -17,6 +17,7 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 - Task/Planning (Details and task assignment is in the [Issues (label:Assignment 2)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+2%22)
   - Add Code Quality Metrics
     - **ESLint:** Lints and enforces coding standards for JavaScript.
+    - **eslint-plugin-complexity:** Checks code complexity.
     - **Stylelint:** Lints and enforces coding standards for CSS.
     - **HTMLHint:** Lints and enforces coding standards for HTML.
   - Refactor Code
