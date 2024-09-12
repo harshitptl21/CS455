@@ -33,3 +33,6 @@ jobs:
 
       - name: Run JSCPD
         run: npm run check:duplication
+        
+      - name: Karma unit testing
+        run: npm run test
