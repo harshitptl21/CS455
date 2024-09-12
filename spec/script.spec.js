@@ -178,3 +178,29 @@ describe("initTouchEvents", function() {
     });
 });
 
+describe("updatePosition", function() {
+    let canvas, mouseEvent, touchEvent;
+
+    beforeEach(function() {
+        canvas = document.createElement('canvas');
+        canvas.setAttribute('id', 'myCanvas');
+        document.body.appendChild(canvas);
+        window.canvas = canvas;
+    });
+
+    it("should update mouse position using touch coordinates for a touch event", function() {
+        spyOnProperty(canvas, 'offsetLeft', 'get').and.returnValue(10);
+        spyOnProperty(canvas, 'offsetTop', 'get').and.returnValue(20);
+        touchEvent = {
+            touches: [{ pageX: 100, pageY: 200 }]
+        };
+
+        updatePosition(touchEvent);
+        expect(window.mouse).toEqual({ x: 90, y: 180 });
+    });
+
+    afterEach(function() {
+        document.body.removeChild(canvas);
+        window.mouse = undefined;
+    });
+});
