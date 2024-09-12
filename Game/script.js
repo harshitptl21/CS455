@@ -1,4 +1,4 @@
-const puzzle_difficulty = 3;
+const puzzle_difficulty = 4;
 
 var timer;
 var canvas;
