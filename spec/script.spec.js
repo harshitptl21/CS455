@@ -27,3 +27,54 @@ describe('init', function(){
     });
 });
 
+describe("setupPuzzle", function() {
+
+    beforeEach(function() {
+        window.img = { width: 900, height: 565 };
+        spyOn(window, "setCanvas").and.callFake(() => {});
+        spyOn(window, "createPuzzlePieces").and.callFake(() => {});
+        spyOn(window, "drawInitialPuzzle").and.callFake(() => {});
+        spyOn(window, "initTouchEvents").and.callFake(() => {});
+    });
+
+    afterEach(function() {
+        window.img = undefined;
+        setCanvas.and.callThrough(); 
+        createPuzzlePieces.and.callThrough(); 
+        drawInitialPuzzle.and.callThrough();
+        initTouchEvents.and.callThrough();
+    });
+
+    it("should calculate the correct piece width and height", function() {
+        setupPuzzle();
+        expect(piece_width).toBe(Math.floor(window.img.width / puzzle_difficulty));
+        expect(piece_height).toBe(Math.floor(window.img.height / puzzle_difficulty));
+    });
+
+    it("should set the correct puzzle width and height", function() {
+        setupPuzzle();
+        expect(puzzle_width).toBe(piece_width * puzzle_difficulty);
+        expect(puzzle_height).toBe(piece_height * puzzle_difficulty);
+    });
+
+    it("should call setCanvas", function() {
+        setupPuzzle();
+        expect(setCanvas).toHaveBeenCalled();
+    });
+
+    it("should call createPuzzlePieces", function() {
+        setupPuzzle();
+        expect(createPuzzlePieces).toHaveBeenCalled();
+    });
+
+    it("should call drawInitialPuzzle", function() {
+        setupPuzzle();
+        expect(drawInitialPuzzle).toHaveBeenCalled();
+    });
+
+    it("should call initTouchEvents", function() {
+        setupPuzzle();
+        expect(initTouchEvents).toHaveBeenCalled();
+    });
+});
+
