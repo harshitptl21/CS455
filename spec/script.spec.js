@@ -78,3 +78,41 @@ describe("setupPuzzle", function() {
     });
 });
 
+describe("setCanvas", function() {
+
+    beforeEach(function() {
+        canvas = document.createElement('canvas');
+        canvas.setAttribute('id', 'myCanvas');
+        stage = jasmine.createSpyObj('CanvasRenderingContext2D', ['fillRect', 'clearRect', 'drawImage']);
+        spyOn(document, 'getElementById').and.returnValue(canvas);
+        spyOn(canvas, 'getContext').and.returnValue(stage);
+        setCanvas();
+    });
+
+    afterEach(function() {
+        document.getElementById.and.callThrough();
+        canvas.getContext.and.callThrough();
+        if (document.getElementById('myCanvas')) {
+            document.body.removeChild(canvas);
+        }
+        canvas = null;
+        stage = null;
+    });
+
+    it("should retrieve the canvas element by its ID", function() {
+        expect(document.getElementById).toHaveBeenCalledWith('myCanvas');
+    });
+
+    it("should set the canvas width and height based on puzzle dimensions", function() {
+        expect(canvas.width).toBe(puzzle_width);
+        expect(canvas.height).toBe(puzzle_height);
+    });
+
+    it("should apply a black border to the canvas", function() {
+        expect(canvas.style.border).toBe("1px solid black");
+    });
+
+    it("should retrieve the 2D drawing context", function() {
+        expect(stage).toBe(canvas.getContext('2d'));
+    });
+});
