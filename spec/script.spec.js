@@ -116,3 +116,34 @@ describe("setCanvas", function() {
         expect(stage).toBe(canvas.getContext('2d'));
     });
 });
+
+describe("createTitle", function() {
+    let stage;
+
+    beforeEach(function() {
+        stage = jasmine.createSpyObj('CanvasRenderingContext2D', ['fillRect', 'fillStyle', 'globalAlpha', 'textAlign', 'textBaseline', 'font', 'fillText']);
+        window.stage = stage;
+        window.puzzle_width = 900;
+        window.puzzle_height = 565;
+    });
+
+    it("should set the correct text properties", function() {
+        createTitle("Test Message");
+        expect(stage.fillStyle).toBe("#FFFFFF");
+        expect(stage.globalAlpha).toBe(1);
+        expect(stage.textAlign).toBe("center");
+        expect(stage.textBaseline).toBe("middle");
+        expect(stage.font).toBe("20px Arial");
+    });
+
+    it("should render the message text in the center of the canvas", function() {
+        createTitle("Test Message");
+        expect(stage.fillText).toHaveBeenCalledWith("Test Message", puzzle_width / 2, puzzle_height - 80);
+    });
+
+    afterEach(function() {
+        window.stage = undefined;
+        window.puzzle_width = undefined;
+        window.puzzle_height = undefined;
+    });
+});
