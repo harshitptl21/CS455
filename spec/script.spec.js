@@ -147,3 +147,34 @@ describe("createTitle", function() {
         window.puzzle_height = undefined;
     });
 });
+
+describe("initTouchEvents", function() {
+    let canvas;
+
+    beforeEach(function() {
+        canvas = document.createElement('canvas');
+        canvas.setAttribute('id', 'myCanvas');
+        spyOn(canvas, 'addEventListener');
+        window.canvas = canvas;
+    });
+
+    it("should add a touchstart event listener to the canvas", function() {
+        initTouchEvents();
+        expect(canvas.addEventListener).toHaveBeenCalledWith('touchstart', jasmine.any(Function), false);
+    });
+
+    it("should add a touchmove event listener to the canvas", function() {
+        initTouchEvents();
+        expect(canvas.addEventListener).toHaveBeenCalledWith('touchmove', jasmine.any(Function), false);
+    });
+
+    it("should add a touchend event listener to the canvas", function() {
+        initTouchEvents();
+        expect(canvas.addEventListener).toHaveBeenCalledWith('touchend', jasmine.any(Function), false);
+    });
+
+    afterEach(function() {
+        window.canvas = undefined;
+    });
+});
+
