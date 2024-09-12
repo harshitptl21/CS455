@@ -204,3 +204,42 @@ describe("updatePosition", function() {
         window.mouse = undefined;
     });
 });
+
+describe("getPieceAtPosition", function() {
+    let piece1, piece2, piece3;
+
+    beforeEach(function() {
+        window.piece_width = 100;
+        window.piece_height = 100;
+
+        piece1 = { xPos: 0, yPos: 0 };    // Top-left corner
+        piece2 = { xPos: 100, yPos: 0 };  // Top-right
+        piece3 = { xPos: 0, yPos: 100 };  // Bottom-left
+
+        window.pieces = [piece1, piece2, piece3];
+    });
+
+    it("should return the correct piece when the mouse is within the bounds of piece1", function() {
+        window.mouse = { x: 50, y: 50 };  // Inside piece1
+        const result = getPieceAtPosition();
+        expect(result).toBe(piece1);
+    });
+
+    it("should return the correct piece when the mouse is within the bounds of piece2", function() {
+        window.mouse = { x: 150, y: 50 }; // Inside piece2
+        const result = getPieceAtPosition();
+        expect(result).toBe(piece2);
+    });
+
+    it("should return the correct piece when the mouse is within the bounds of piece3", function() {
+        window.mouse = { x: 50, y: 150 }; // Inside piece3
+        const result = getPieceAtPosition();
+        expect(result).toBe(piece3);
+    });
+
+    it("should return null when the mouse is outside the bounds of all pieces", function() {
+        window.mouse = { x: 300, y: 300 }; // Outside all pieces
+        const result = getPieceAtPosition();
+        expect(result).toBeNull();
+    });
+});
