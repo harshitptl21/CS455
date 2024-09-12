@@ -32,3 +32,5 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
     - For CSS: npm run lint:css
     - For HTML: npm run lint:html
     - For Duplication: npm run check:duplication
+  - Run Unit Test
+    - npm run test
