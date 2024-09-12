@@ -258,5 +258,3 @@ function gameOver() {
     canvas.removeEventListener('touchstart', handlePieceMove);
     init();
 }
-
-window.onload = init;
