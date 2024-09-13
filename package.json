@@ -22,6 +22,7 @@
     "jscpd": "^4.0.5",
     "karma": "^6.4.4",
     "karma-chrome-launcher": "^3.2.0",
+    "karma-coverage": "^2.2.1",
     "karma-jasmine": "^5.1.0",
     "stylelint": "^16.9.0"
   }
