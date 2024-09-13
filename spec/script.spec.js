@@ -400,3 +400,56 @@ describe("dropPiece", function() {
         expect(resetPuzzleAndCheckWin).toHaveBeenCalled();
     });
 });
+
+describe("createPuzzlePieces", function() {
+    let puzzle_difficulty, piece_width, piece_height, puzzle_width, puzzle_height, pieces;
+
+    beforeEach(function() {
+        puzzle_difficulty = 3;
+        piece_width = 100;
+        piece_height = 100;
+        puzzle_width = 300;
+        puzzle_height = 300;
+        pieces = [];
+    });
+
+    afterEach(function() {
+        puzzle_difficulty = null;
+        piece_width = null;
+        piece_height = null;
+        puzzle_width = null;
+        puzzle_height = null;
+        pieces = [];
+    });
+
+    it("should create correct number of puzzle pieces", function() {
+        createPuzzlePieces();
+        expect(9).toBe(puzzle_difficulty * puzzle_difficulty);
+    });
+
+    it("should assign correct xPos and yPos for each piece", function() {
+        createPuzzlePieces();
+
+        for (let i = 0; i < pieces.length; i++) {
+            const row = Math.floor(i / puzzle_difficulty);
+            const col = i % puzzle_difficulty;
+            const expectedXPos = col * piece_width;
+            const expectedYPos = row * piece_height;
+
+            expect(pieces[i].xPos).toBe(expectedXPos);
+            expect(pieces[i].yPos).toBe(expectedYPos);
+        }
+    });
+
+    it("should reset xPos and increment yPos after each row is filled", function() {
+        createPuzzlePieces();
+
+        for (let i = 0; i < pieces.length; i++) {
+            const piece = pieces[i];
+            if (i % puzzle_difficulty === 0 && i !== 0) {
+                expect(piece.xPos).toBe(0);
+                expect(piece.yPos).toBe(pieces[i - 1].yPos + piece_height);
+            }
+        }
+    });
+});
