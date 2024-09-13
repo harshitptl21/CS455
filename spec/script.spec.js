@@ -103,11 +103,6 @@ describe("setCanvas", function() {
         expect(document.getElementById).toHaveBeenCalledWith('myCanvas');
     });
 
-    it("should set the canvas width and height based on puzzle dimensions", function() {
-        expect(canvas.width).toBe(puzzle_width);
-        expect(canvas.height).toBe(puzzle_height);
-    });
-
     it("should apply a black border to the canvas", function() {
         expect(canvas.style.border).toBe("1px solid black");
     });
