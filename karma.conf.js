@@ -6,7 +6,10 @@ module.exports = function(config) {
             'Game/**/*.js',
             'spec/**/*.js' // Adjust this to include your tests
         ],
-        reporters: ['progress'],
+        preprocessors: {
+            'Game/**/*.js': ['coverage']
+        },
+        reporters: ['progress', 'coverage'],
         browsers: ['ChromeHeadless'],
         singleRun: true
     });
