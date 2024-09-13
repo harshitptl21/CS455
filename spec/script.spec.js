@@ -243,3 +243,59 @@ describe("getPieceAtPosition", function() {
         expect(result).toBeNull();
     });
 });
+
+describe("shuffleAndStartPuzzle", function() {
+    let e, canvas;
+
+    beforeEach(function() {
+        e = {
+            preventDefault: jasmine.createSpy('preventDefault')
+        };
+
+        canvas = {
+            addEventListener: jasmine.createSpy('addEventListener'),
+            removeEventListener: jasmine.createSpy('removeEventListener')
+        };
+
+        spyOn(window, 'shufflePieces');
+        spyOn(window, 'drawShuffledPuzzle');
+        spyOn(window, 'startTimer');
+        spyOn(window, 'handlePieceMove');
+
+        window.canvas = canvas;
+    });
+
+    afterEach(function() {
+        e.preventDefault.and.callThrough();
+        canvas.addEventListener.and.callThrough();
+        canvas.removeEventListener.and.callThrough();
+        shufflePieces.calls.reset();
+        drawShuffledPuzzle.calls.reset();
+        startTimer.calls.reset();
+        handlePieceMove.calls.reset();
+    });
+
+    it("should prevent the default action of the event", function() {
+        shuffleAndStartPuzzle(e);
+        expect(e.preventDefault).toHaveBeenCalled();
+    });
+
+    it("should shuffle the pieces and draw the shuffled puzzle", function() {
+        shuffleAndStartPuzzle(e);
+        expect(shufflePieces).toHaveBeenCalled();
+        expect(drawShuffledPuzzle).toHaveBeenCalled();
+    });
+
+    it("should manage event listeners correctly", function() {
+        shuffleAndStartPuzzle(e);
+        expect(canvas.removeEventListener).toHaveBeenCalledWith('mousedown', shuffleAndStartPuzzle);
+        expect(canvas.removeEventListener).toHaveBeenCalledWith('touchstart', shuffleAndStartPuzzle);
+        expect(canvas.addEventListener).toHaveBeenCalledWith('mousedown', handlePieceMove, false);
+        expect(canvas.addEventListener).toHaveBeenCalledWith('touchstart', handlePieceMove, false);
+    });
+
+    it("should start the timer", function() {
+        shuffleAndStartPuzzle(e);
+        expect(startTimer).toHaveBeenCalled();
+    });
+});
