@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint:js": "eslint Game",
-    "lint:css": "stylelint '**/*.css'",
+    "lint:css": "stylelint 'Game/**/*.css'",
     "lint:html": "htmlhint '**/*.html'",
     "check:duplication": "jscpd --min-lines 6 ./Game index.html",
     "test": "karma start"
