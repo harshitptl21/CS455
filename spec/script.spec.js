@@ -299,3 +299,38 @@ describe("shuffleAndStartPuzzle", function() {
         expect(startTimer).toHaveBeenCalled();
     });
 });
+
+describe("startTimer", function() {
+    let timer;
+
+    beforeEach(function() {
+        const mockElement = {
+            textContent: ''
+        };
+        spyOn(document, 'getElementById').and.returnValue(mockElement);
+
+        spyOn(window, 'setInterval').and.callFake((callback, interval) => {
+            timer = { callback, interval };
+            callback();
+            return timer;
+        });
+
+        spyOn(window, 'clearInterval');
+        spyOn(window, 'alert');
+        spyOn(window, 'gameOver');
+    });
+
+    afterEach(function() {
+        document.getElementById.and.callThrough();
+        clearInterval.calls.reset();
+        alert.calls.reset();
+        gameOver.calls.reset();
+    });
+
+    it("should initialize a timer that updates the timer display", function() {
+        startTimer();
+        timer.callback();
+        const timerElement = document.getElementById('timer');
+        expect(timerElement.textContent).toBe('00:58');
+    });
+});
