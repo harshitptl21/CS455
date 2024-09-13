@@ -453,3 +453,47 @@ describe("createPuzzlePieces", function() {
         }
     });
 });
+
+describe("drawInitialPuzzle", function() {
+    let stage, img, canvas;
+
+    beforeEach(function() {
+        stage = {
+            drawImage: jasmine.createSpy('drawImage')
+        };
+
+        img = {};
+
+        canvas = {
+            addEventListener: jasmine.createSpy('addEventListener')
+        };
+        spyOn(window, 'createTitle');
+        spyOn(window, 'drawInitialPuzzle').and.callThrough();
+
+        window.stage = stage;
+        window.img = img;
+        window.canvas = canvas;
+    });
+
+    afterEach(function() {
+        stage.drawImage.and.callThrough();
+        canvas.addEventListener.and.callThrough();
+        createTitle.calls.reset();
+    });
+
+    it("should draw the initial image on the canvas", function() {
+        drawInitialPuzzle();
+        expect(stage.drawImage).toHaveBeenCalledWith(img, 0, 0, puzzle_width, puzzle_height, 0, 0, puzzle_width, puzzle_height);
+    });
+
+    it("should create the title with the correct text", function() {
+        drawInitialPuzzle();
+        expect(createTitle).toHaveBeenCalledWith("Click or Touch Anywhere To Start");
+    });
+
+    it("should add event listeners to the canvas", function() {
+        drawInitialPuzzle();
+        expect(canvas.addEventListener).toHaveBeenCalledWith('mousedown', shuffleAndStartPuzzle, false);
+        expect(canvas.addEventListener).toHaveBeenCalledWith('touchstart', shuffleAndStartPuzzle, false);
+    });
+});
