@@ -32,5 +32,6 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
     - For CSS: npm run lint:css
     - For HTML: npm run lint:html
     - For Duplication: npm run check:duplication
-  - Run Unit Test
-    - npm run test
+  - Unit Test
+    - Run: npm run test
+    - [Report](https://harshitptl21.github.io/CS455/coverage/Chrome%20Headless%20128.0.0.0%20(Linux%20x86_64)/index.html)
