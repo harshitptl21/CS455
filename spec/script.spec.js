@@ -360,3 +360,43 @@ describe("shufflePieces", function() {
         expect(pieces).not.toEqual(originalPieces);
     });
 });
+
+describe("dropPiece", function() {
+    let current_piece, current_drop_piece, resetPuzzleAndCheckWin;
+
+    beforeEach(function() {
+        document.onmousemove = jasmine.createSpy('onmousemove');
+        document.onmouseup = jasmine.createSpy('onmouseup');
+        document.ontouchmove = jasmine.createSpy('ontouchmove');
+        document.ontouchend = jasmine.createSpy('ontouchend');
+        
+        current_piece = { xPos: 10, yPos: 20 };
+        current_drop_piece = { xPos: 30, yPos: 40 };
+        
+        resetPuzzleAndCheckWin = jasmine.createSpy('resetPuzzleAndCheckWin');
+        window.resetPuzzleAndCheckWin = resetPuzzleAndCheckWin;
+    });
+
+    afterEach(function() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+        document.ontouchmove = null;
+        document.ontouchend = null;
+        current_piece = null;
+        current_drop_piece = null;
+        resetPuzzleAndCheckWin = null;
+    });
+
+    it("should set global event handlers to null", function() {
+        dropPiece();
+        expect(document.onmousemove).toBeNull();
+        expect(document.onmouseup).toBeNull();
+        expect(document.ontouchmove).toBeNull();
+        expect(document.ontouchend).toBeNull();
+    });
+
+    it("should call resetPuzzleAndCheckWin", function() {
+        dropPiece();
+        expect(resetPuzzleAndCheckWin).toHaveBeenCalled();
+    });
+});
