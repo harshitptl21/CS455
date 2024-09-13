@@ -334,3 +334,29 @@ describe("startTimer", function() {
         expect(timerElement.textContent).toBe('00:58');
     });
 });
+
+describe("shufflePieces", function() {
+    let originalPieces, shuffledPieces;
+
+    beforeEach(function() {
+        pieces = [
+            { sx: 0, sy: 0, xPos: 0, yPos: 0 },
+            { sx: 50, sy: 50, xPos: 0, yPos: 0 },
+            { sx: 100, sy: 100, xPos: 0, yPos: 0 },
+            { sx: 150, sy: 150, xPos: 0, yPos: 0 }
+        ];
+
+        originalPieces = JSON.parse(JSON.stringify(pieces));
+    });
+
+    afterEach(function() {
+        pieces = null;
+        originalPieces = null;
+        shuffledPieces = null;
+    });
+
+    it("should shuffle the pieces array", function() {
+        shufflePieces();
+        expect(pieces).not.toEqual(originalPieces);
+    });
+});
