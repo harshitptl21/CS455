@@ -35,3 +35,7 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Unit Test
     - Run: npm run test
     - [Report](https://harshitptl21.github.io/CS455/coverage/Chrome%20Headless%20128.0.0.0%20(Linux%20x86_64)/index.html)
+
+## Assignment 3: Conversion to client-server architecture
+- [Problem Statement](https://github.com/harshitptl21/CS455/blob/main/Problem_Statements/Assignment_3.pdf)
+- Task/Planning (Details and task assignment is in the [Issues (label:Assignment 3)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+3%22)
