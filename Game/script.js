@@ -13,6 +13,9 @@ var current_piece;
 var current_drop_piece;
 var mouse;
 
+var username;
+var score;
+
 function init() {
     img = new Image();
     img.src = "Game/images/Dog.jpg";
@@ -256,5 +259,19 @@ function gameOver() {
     document.getElementById('timer').textContent = "01:00"
     canvas.removeEventListener('mousedown', handlePieceMove);
     canvas.removeEventListener('touchstart', handlePieceMove);
-    init();
+    submitScore();
+    storeUserName();
+}
+
+function storeUserName() {
+    username = document.getElementById("username").value;
+    if(username.trim() != ''){
+        document.querySelector('.timer-container').style.filter = 'none';
+        document.querySelector('.score-table').style.filter = 'none';
+        document.querySelector('.puzzleFrame').style.filter = 'none';
+        loadScores();
+        init();
+    } else{
+        storeUserName();
+    }
 }
