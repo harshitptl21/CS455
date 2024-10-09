@@ -48,3 +48,15 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Backend:
     - [get_scores.php](https://github.com/harshitptl21/CS455/blob/main/Game/get_scores.php): Retrieve scores from the database and sends them to the frontend for display in the score tables.
     - [submit_score.php](https://github.com/harshitptl21/CS455/blob/main/Game/submit_score.php): Submits the user's score and username to the database once the game ends.
+- ### Workflows:
+  - User Interactions:
+    - User enters their name in the input field.
+    - The game starts when the user clicks or touches the canvas.
+    - The game logic starts, shuffling the puzzle and initiating the timer.
+    - The player moves pieces using mouse or touch events.
+  - Game State:
+    - Canvas: Displays the puzzle pieces and updates their positions as the user drags and drops them.
+    - Timer: Counts down and triggers the game over if time runs out.
+  - Database Interactions:
+    - Submit Scores: After the game ends, the submit_score.php sends the user's score to the backend and stores it in puzzle_game.db
+    - Fetch Scores: On page load, get_scores.php fetches the scores from the database to display in the score tables.
