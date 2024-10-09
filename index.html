@@ -6,7 +6,7 @@
   <script type="text/javascript" src="Game/script.js"></script>
 </head>
 
-<body onload="init();">
+<body>
   <div class="header">
     <h1> Puzzle Game </h1>
   </div>
@@ -14,8 +14,18 @@
     <div id="text">TIME LEFT:</div>
     <div id="timer">01:00</div>
   </div>
-  <div class="puzzleFrame">
-    <canvas id="myCanvas"></canvas>
+  <div class="game-container">
+    
+    <div class="score-table">
+      <h2>Top 10 Scores</h2>
+      <ul id="score-list">
+      </ul>
+    </div>
+
+    <div class="puzzleFrame">
+      <canvas id="myCanvas"></canvas>
+    </div>
+
   </div>
 </body>
 
