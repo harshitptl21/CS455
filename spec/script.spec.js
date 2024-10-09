@@ -493,6 +493,69 @@ describe("drawInitialPuzzle", function() {
     });
 });
 
+describe('drawShuffledPuzzle', function() {
+    let stage;
+    let pieces;
+    let img;
+    let puzzle_width;
+    let puzzle_height;
+    let piece_width;
+    let piece_height;
+
+    beforeEach(function() {
+        stage = {
+            clearRect: jasmine.createSpy('clearRect'),
+            drawImage: jasmine.createSpy('drawImage'),
+            strokeRect: jasmine.createSpy('strokeRect')
+        };
+        
+        pieces = [
+            { sx: 0, sy: 0, xPos: 10, yPos: 10 },
+            { sx: 100, sy: 0, xPos: 110, yPos: 10 },
+        ];
+        
+        img = new Image();
+        puzzle_width = 300;
+        puzzle_height = 300; 
+        piece_width = 100;
+        piece_height = 100; 
+    });
+
+    it('should clear the canvas and draw each puzzle piece', function() {
+        window.stage = stage;
+        window.pieces = pieces;
+        window.img = img;
+        window.puzzle_width = puzzle_width;
+        window.puzzle_height = puzzle_height;
+        window.piece_width = piece_width;
+        window.piece_height = piece_height;
+
+        drawShuffledPuzzle();
+
+        expect(stage.clearRect).toHaveBeenCalledWith(0, 0, puzzle_width, puzzle_height);
+        
+        pieces.forEach(piece => {
+            expect(stage.drawImage).toHaveBeenCalledWith(
+                img,
+                piece.sx,
+                piece.sy,
+                piece_width,
+                piece_height,
+                piece.xPos,
+                piece.yPos,
+                piece_width,
+                piece_height
+            );
+            expect(stage.strokeRect).toHaveBeenCalledWith(
+                piece.xPos,
+                piece.yPos,
+                piece_width,
+                piece_height
+            );
+        });
+    });
+});
+
 describe('resetPuzzleAndCheckWin', function() {
     let stage;
     let img;
