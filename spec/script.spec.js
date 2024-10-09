@@ -582,3 +582,59 @@ describe('loadScores', function() {
         }, 0);
     });
 });
+
+describe('submitScore', function() {
+    let fetchSpy, loadScoresSpy;
+
+    beforeEach(function() {
+        var body = document.querySelector('body');
+        body.innerHTML = `
+            <input id="username" type="text" value="ValidUser">
+        `;
+
+        window.score = 100; 
+        loadScoresSpy = spyOn(window, 'loadScores').and.callFake(function() {});
+
+        fetchSpy = spyOn(window, 'fetch').and.returnValue(Promise.resolve({
+            json: function() {
+                return Promise.resolve({ success: true });
+            }
+        }));
+    });
+
+    it('should submit score when username and score are valid', function(done) {
+        submitScore();
+        setTimeout(function() {
+            expect(fetchSpy).toHaveBeenCalledWith('Game/submit_score.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: 'ValidUser', score: 100 })
+            });
+            expect(loadScoresSpy).toHaveBeenCalled();
+
+            done();
+        }, 0);
+    });
+
+    it('should not submit score if username or score is missing and should show an alert', function() {
+        window.score = null;
+        spyOn(window, 'alert');
+
+        submitScore();
+        expect(fetchSpy).not.toHaveBeenCalled();
+
+        expect(window.alert).toHaveBeenCalledWith('Please enter a username and have a valid score.');
+    });
+
+    it('should handle fetch errors by logging them', function(done) {
+        fetchSpy.and.returnValue(Promise.reject('Fetch error'));
+        spyOn(console, 'error');
+
+        submitScore();
+        setTimeout(function() {
+            expect(console.error).toHaveBeenCalledWith('Error submitting score:', 'Fetch error');
+
+            done();
+        }, 0);
+    });
+});
