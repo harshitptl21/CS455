@@ -492,3 +492,31 @@ describe("drawInitialPuzzle", function() {
         expect(canvas.addEventListener).toHaveBeenCalledWith('touchstart', shuffleAndStartPuzzle, false);
     });
 });
+
+describe('storeUserName', function() {
+    var loadScoresSpy, initSpy;
+
+    beforeEach(function() {
+        var body = document.querySelector('body');
+        body.innerHTML = `
+            <input id="username" type="text">
+            <div class="timer-container" style="filter: blur(5px);"></div>
+            <div class="score-table" style="filter: blur(5px);"></div>
+            <div class="puzzleFrame" style="filter: blur(5px);"></div>
+        `;
+        loadScoresSpy = spyOn(window, 'loadScores').and.callFake(function() {});
+        initSpy = spyOn(window, 'init').and.callFake(function() {});
+    });
+
+    it('should remove blur filter and call loadScores and init when username is valid', function() {
+        document.getElementById('username').value = 'ValidUser';
+
+        storeUserName();
+        expect(document.querySelector('.timer-container').style.filter).toBe('none');
+        expect(document.querySelector('.score-table').style.filter).toBe('none');
+        expect(document.querySelector('.puzzleFrame').style.filter).toBe('none');
+
+        expect(loadScoresSpy).toHaveBeenCalled();
+        expect(initSpy).toHaveBeenCalled();
+    });
+});
