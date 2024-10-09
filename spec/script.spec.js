@@ -493,6 +493,48 @@ describe("drawInitialPuzzle", function() {
     });
 });
 
+describe('resetPuzzleAndCheckWin', function() {
+    let stage;
+    let img;
+    let pieces;
+    let score;
+
+    beforeEach(function() {
+        stage = {
+            clearRect: jasmine.createSpy('clearRect'),
+            drawImage: jasmine.createSpy('drawImage'),
+            strokeRect: jasmine.createSpy('strokeRect')
+        };
+
+        img = new Image(); 
+        pieces = [
+            { sx: 0, sy: 0, xPos: 0, yPos: 0 },
+            { sx: 50, sy: 0, xPos: 50, yPos: 0 },
+            { sx: 100, sy: 0, xPos: 100, yPos: 0 }
+        ];
+
+        score = 30;
+        window.stage = stage;
+        window.img = img;
+        window.pieces = pieces;
+        window.puzzle_width = 300; 
+        window.puzzle_height = 150;
+        window.piece_width = 50;
+        window.piece_height = 50; 
+    });
+
+    it('should clear the canvas and draw the pieces', function() {
+        resetPuzzleAndCheckWin();
+
+        expect(stage.clearRect).toHaveBeenCalledWith(0, 0, 300, 150);
+
+        pieces.forEach(piece => {
+            expect(stage.drawImage).toHaveBeenCalledWith(img, piece.sx, piece.sy, 50, 50, piece.xPos, piece.yPos, 50, 50);
+            expect(stage.strokeRect).toHaveBeenCalledWith(piece.xPos, piece.yPos, 50, 50);
+        });
+    });
+});
+
 describe('storeUserName', function() {
     var loadScoresSpy, initSpy;
 
