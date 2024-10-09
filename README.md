@@ -39,3 +39,12 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 ## Assignment 3: Conversion to client-server architecture
 - [Problem Statement](https://github.com/harshitptl21/CS455/blob/main/Problem_Statements/Assignment_3.pdf)
 - Task/Planning (Details and task assignment is in the [Issues (label:Assignment 3)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+3%22)
+- ### Components:
+  - UI (HTML & CSS):
+    - [index.html](https://github.com/harshitptl21/CS455/blob/main/index.html): Sets up the main structure of the game including the timer, score tables, canvas, and input fields for the username.
+    - [style.css](https://github.com/harshitptl21/CS455/blob/main/Game/style.css): Styles the game, including blurred elements until a username is entered, and the layout for the canvas, score table, and other UI elements.
+  - Game Logic:
+    - [script.js](https://github.com/harshitptl21/CS455/blob/main/Game/script.js): Core logic of the puzzle game, including setting up the puzzle, handling events (drag, drop, timer), and shuffling pieces.
+  - Backend:
+    - [get_scores.php](https://github.com/harshitptl21/CS455/blob/main/Game/get_scores.php): Retrieve scores from the database and sends them to the frontend for display in the score tables.
+    - [submit_score.php](https://github.com/harshitptl21/CS455/blob/main/Game/submit_score.php): Submits the user's score and username to the database once the game ends.
