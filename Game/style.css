@@ -74,3 +74,29 @@ body {
     border: 2px solid #333;
     background-color: #fff;
 }
+
+.username-input {
+    width: 20%;
+    height: 50%;
+    background-color: #f9f9f9;
+    border: 2px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+.username-input h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#username {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#user-score {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+}
