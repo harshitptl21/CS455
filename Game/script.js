@@ -103,7 +103,7 @@ function startTimer() {
         document.getElementById('timer').textContent =
             (minutes < 10 ? '0' : '') + minutes + ':' +
             (seconds < 10 ? '0' : '') + seconds;
-
+        score = 60-timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timer);
             alert("Time's up! You Lose!");
@@ -248,7 +248,7 @@ function resetPuzzleAndCheckWin() {
     });
     if (gameWin) {
         setTimeout(() => {
-            alert("You Win!");
+            alert("You Win! Solved in "+score+" seconds");
             gameOver();
         }, 100);
     }
