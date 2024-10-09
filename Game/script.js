@@ -302,3 +302,25 @@ function loadScores() {
             console.error('Error loading scores:', error);
         });
 }
+
+function submitScore() {
+    const username = document.getElementById('username').value;
+    if (username && score) {
+        fetch('Game/submit_score.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, score })
+        })
+        .then(response => response.json())
+        .then(() => {
+            loadScores();
+        })
+        .catch(error => {
+            console.error('Error submitting score:', error);
+        });
+    } else {
+        alert('Please enter a username and have a valid score.');
+    }
+}
