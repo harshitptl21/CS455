@@ -275,3 +275,30 @@ function storeUserName() {
         storeUserName();
     }
 }
+
+function loadScores() {
+    fetch('Game/get_scores.php')
+        .then(response => response.json())
+        .then(data => {
+            const scoreList = document.getElementById('score-list');
+            const userScore = document.getElementById('user-score')
+            userScore.innerHTML = '';
+            scoreList.innerHTML = '';
+
+            data.slice(0, 10).forEach(score => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${score.username}: ${score.score}`+" seconds";
+                scoreList.appendChild(listItem);
+            });
+            data.forEach(score => {
+                if(`${score.username}` == username){
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${score.username}: ${score.score}`+" seconds";
+                    userScore.appendChild(listItem);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error loading scores:', error);
+        });
+}
