@@ -520,3 +520,65 @@ describe('storeUserName', function() {
         expect(initSpy).toHaveBeenCalled();
     });
 });
+
+describe('loadScores', function() {
+    var mockResponse;
+
+    beforeEach(function() {
+        var body = document.querySelector('body');
+        body.innerHTML = `
+            <ul id="score-list"></ul>
+            <ul id="user-score"></ul>
+        `;
+
+        mockResponse = [
+            { username: 'User1', score: 120 },
+            { username: 'User2', score: 150 },
+            { username: 'User3', score: 100 },
+            { username: 'ValidUser', score: 90 }
+        ];
+
+        spyOn(window, 'fetch').and.returnValue(Promise.resolve({
+            json: function() {
+                return Promise.resolve(mockResponse);
+            }
+        }));
+
+        username = 'ValidUser';
+    });
+
+    it('should fetch scores and populate the score list and user score', function(done) {
+       
+        loadScores();
+
+        setTimeout(function() {
+            expect(window.fetch).toHaveBeenCalledWith('Game/get_scores.php');
+
+            const scoreListItems = document.querySelectorAll('#score-list li');
+            expect(scoreListItems.length).toBe(4); 
+            expect(scoreListItems[0].textContent).toBe('User1: 120 seconds');
+            expect(scoreListItems[1].textContent).toBe('User2: 150 seconds');
+            expect(scoreListItems[2].textContent).toBe('User3: 100 seconds');
+            expect(scoreListItems[3].textContent).toBe('ValidUser: 90 seconds');
+
+            const userScoreItems = document.querySelectorAll('#user-score li');
+            expect(userScoreItems.length).toBe(1);
+            expect(userScoreItems[0].textContent).toBe('ValidUser: 90 seconds');
+
+            done();
+        }, 0);
+    });
+
+    it('should handle errors in the fetch call', function(done) {
+        window.fetch.and.returnValue(Promise.reject('Fetch error'));
+
+        spyOn(console, 'error');
+        loadScores();
+
+        setTimeout(function() {
+            expect(console.error).toHaveBeenCalledWith('Error loading scores:', 'Fetch error');
+
+            done();
+        }, 0);
+    });
+});
