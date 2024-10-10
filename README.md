@@ -3,7 +3,8 @@
 - Group Member:
   - Aakash Yadav (210010)
   - Harshit Patel (210424)
-- Deployed Game: [Play](https://harshitptl21.github.io/CS455/)
+- Deployed Game (Static): [Play](https://harshitptl21.github.io/CS455/)
+- Deployed Game (client-server architecture): [Play](http://cs455.000.pe/)
 
 ## Assignment 1: Develop a Game
 A puzzle game, in which an image is split into 9 parts and the user has to assemble it to form the original image.
@@ -74,3 +75,4 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Unit test: Tested game logic.
   - Integration test: Tested frontend-server and server-database integration
   - End to End test: Manually tested UI 
+- Deployed Game (client-server architecture): [Play](http://cs455.000.pe/)
