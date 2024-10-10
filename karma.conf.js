@@ -9,6 +9,13 @@ module.exports = function(config) {
         preprocessors: {
             'Game/**/*.js': ['coverage']
         },
+        coverageReporter: {
+            check: {
+              global: { 
+                functions: 75
+              }
+            }
+        },
         reporters: ['progress', 'coverage'],
         browsers: ['ChromeHeadless'],
         singleRun: true
