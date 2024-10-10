@@ -4,6 +4,12 @@ header('Content-Type: application/json');
 try {
     $pdo = new PDO('sqlite:puzzle_game.db');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $query = "CREATE TABLE IF NOT EXISTS scores (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        score INTEGER NOT NULL
+    )";
+    $pdo->exec($query);
 
     $data = json_decode(file_get_contents('php://input'), true);
     $username = $data['username'];
