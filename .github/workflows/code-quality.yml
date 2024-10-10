@@ -41,7 +41,7 @@ jobs:
         run: composer install
         
       - name: Starting php server
-        run: php -S localhost:8000
+        run: nohup php -S localhost:8000 > server.log 2>&1 &
 
       - name: Integration testing
         run: vendor/bin/phpunit tests/*.php
