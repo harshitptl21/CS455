@@ -44,4 +44,4 @@ jobs:
         run: php -S localhost:8000
 
       - name: Integration testing
-        run: vendor/bin/phpunit tests/ScoreIntegrationTest.php
+        run: vendor/bin/phpunit tests/*.php
