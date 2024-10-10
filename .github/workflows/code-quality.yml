@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install npm dependencies
         run: npm install
 
       - name: Run ESLint
@@ -36,3 +36,12 @@ jobs:
         
       - name: Karma unit testing
         run: npm run test
+        
+      - name: Install composer dependencies
+        run: composer install
+        
+      - name: Starting php server
+        run: php -S localhost:8000
+
+      - name: Integration testing
+        run: vendor/bin/phpunit tests/ScoreIntegrationTest.php
