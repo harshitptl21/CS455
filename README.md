@@ -68,3 +68,9 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Database Interactions:
     - Submit Scores: After the game ends, the submit_score.php sends the user's score to the backend and stores it in puzzle_game.db
     - Fetch Scores: On page load, get_scores.php fetches the scores from the database to display in the score tables.
+- ### Testing:
+  - **karma (jasmine)**: For Javascript testing
+  - **phpunit**: For php testing
+  - Unit test: Tested game logic.
+  - Integration test: Tested frontend-server and server-database integration
+  - End to End test: Manually tested UI 
