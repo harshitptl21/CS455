@@ -76,3 +76,14 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
   - Integration test: Tested frontend-server and server-database integration
   - End to End test: Manually tested UI 
 - Deployed Game (client-server architecture): [Play](http://cs455.000.pe/)
+
+## Assignment 4: Performance Testing and Reliability Enhancements
+- [Problem Statement](https://github.com/harshitptl21/CS455/blob/main/Problem_Statements/Assignment_4.pdf)
+- Task/Planning (Details and task assignment is in the [Issues (label:Assignment 4)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+4%22)
+- Part 1: Performance Testing
+  - **Client side**:
+  - **Server-Side**:
+  - **Automate Performance Testing**:
+- Part 2: Reliability and Failover Mechanisms
+  - **Load Balancing**:
+  - **Automatic Failover**:
