@@ -85,8 +85,8 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 - **Primary Server**: [PS1](http://cs455.000.pe/) [PS2](http://1cs455.000.pe/)
 - **Backup Server**: [BS](http://cs455-backup.000.pe/)
 - Part 1: Performance Testing
-  - **Client side (selenium)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/client)
-  - **Server-Side (k6)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/server)
+  - **Client side (selenium)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/client) [test](https://github.com/harshitptl21/CS455/blob/main/perfTest/client.py)
+  - **Server-Side (k6)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/server) [test](https://github.com/harshitptl21/CS455/blob/main/perfTest/server.js)
   - **Automate Performance Testing**: [workflow](https://github.com/harshitptl21/CS455/blob/main/.github/workflows/autoPerfTest.yml)
 - Part 2: Reliability and Failover Mechanisms
   - **Load Balancing**: [php script](https://github.com/harshitptl21/CS455/blob/main/load_balancer.php)
