@@ -5,6 +5,7 @@
   - Harshit Patel (210424)
 - Deployed Game (Static): [Play](https://harshitptl21.github.io/CS455/)
 - Deployed Game (client-server architecture): [Play](http://cs455.000.pe/)
+- Load Balancer: [LB Server](https://home.iitk.ac.in/~harshitptl21/load.php)
 
 ## Assignment 1: Develop a Game
 A puzzle game, in which an image is split into 9 parts and the user has to assemble it to form the original image.
@@ -80,12 +81,13 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 ## Assignment 4: Performance Testing and Reliability Enhancements
 - [Problem Statement](https://github.com/harshitptl21/CS455/blob/main/Problem_Statements/Assignment_4.pdf)
 - Task/Planning (Details and task assignment is in the [Issues (label:Assignment 4)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+4%22)
+- **Load Balancer**: [LB Server](https://home.iitk.ac.in/~harshitptl21/load.php)
 - **Primary Server**: [PS1](http://cs455.000.pe/) [PS2](http://1cs455.000.pe/)
 - **Backup Server**: [BS](http://cs455-backup.000.pe/)
 - Part 1: Performance Testing
-  - **Client side**:
-  - **Server-Side**:
-  - **Automate Performance Testing**:
+  - **Client side (selenium)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/client)
+  - **Server-Side (k6)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/server)
+  - **Automate Performance Testing**: [workflow](https://github.com/harshitptl21/CS455/blob/main/.github/workflows/automatePerfTest.yml)
 - Part 2: Reliability and Failover Mechanisms
-  - **Load Balancing**:
-  - **Automatic Failover**:
+  - **Load Balancing**: [php script](https://github.com/harshitptl21/CS455/blob/main/load_balancer.php)
+  - **Automatic Failover**: [php script](https://github.com/harshitptl21/CS455/blob/main/load_balancer.php)
