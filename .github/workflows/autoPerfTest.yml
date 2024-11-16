@@ -1,8 +1,9 @@
 name: PerfTest Automation
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  push:
+    branches:
+      - '*'
 
 jobs:
   run-and-save-results:
