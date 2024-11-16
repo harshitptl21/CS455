@@ -80,6 +80,8 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 ## Assignment 4: Performance Testing and Reliability Enhancements
 - [Problem Statement](https://github.com/harshitptl21/CS455/blob/main/Problem_Statements/Assignment_4.pdf)
 - Task/Planning (Details and task assignment is in the [Issues (label:Assignment 4)](https://github.com/harshitptl21/CS455/issues?q=is%3Aissue+label%3A%22Assignment+4%22)
+- **Primary Server**: [PS1](http://cs455.000.pe/) [PS2](http://1cs455.000.pe/)
+- **Backup Server**: [BS](http://cs455-backup.000.pe/)
 - Part 1: Performance Testing
   - **Client side**:
   - **Server-Side**:
