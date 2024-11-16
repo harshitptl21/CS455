@@ -87,7 +87,7 @@ A puzzle game, in which an image is split into 9 parts and the user has to assem
 - Part 1: Performance Testing
   - **Client side (selenium)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/client)
   - **Server-Side (k6)**: [Reports](https://github.com/harshitptl21/CS455/tree/main/perfTest/results/server)
-  - **Automate Performance Testing**: [workflow](https://github.com/harshitptl21/CS455/blob/main/.github/workflows/automatePerfTest.yml)
+  - **Automate Performance Testing**: [workflow](https://github.com/harshitptl21/CS455/blob/main/.github/workflows/autoPerfTest.yml)
 - Part 2: Reliability and Failover Mechanisms
   - **Load Balancing**: [php script](https://github.com/harshitptl21/CS455/blob/main/load_balancer.php)
   - **Automatic Failover**: [php script](https://github.com/harshitptl21/CS455/blob/main/load_balancer.php)
