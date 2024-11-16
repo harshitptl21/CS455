@@ -1,0 +1,41 @@
+name: PerfTest Automation
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  run-and-save-results:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Run Perf Test and save output
+      run: |
+        results_dir="perfTest/results/"
+        server_dir="$results_dir/server/"
+        client_dir="$results_dir/client/"
+        mkdir -p "$server_dir" 
+        mkdir -p "$client_dir" 
+        
+        pip install selenium
+        python perfTest/client.py > "$results_dir/client/$(date +'%Y-%m-%d').txt"
+        sudo snap install k6
+        k6 run perfTest/server.js > "$results_dir/server/$(date +'%Y-%m-%d').txt"
+      
+    - name: Commit and push results
+      run: |
+        # Configure git
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Add the new results and commit
+        git add *
+        git commit -m "perfTest results for $(date +'%Y-%m-%d')"
+        
+        # Push changes
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
