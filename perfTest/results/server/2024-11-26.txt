@@ -1,0 +1,65 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: perfTest/server.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 35s max duration (incl. graceful stop):
+              * default: Up to 10 looping VUs for 5s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+running (01.0s), 01/10 VUs, 0 complete and 0 interrupted iterations
+default   [  19% ] 01/10 VUs  1.0s/5.0s
+
+running (02.0s), 04/10 VUs, 0 complete and 0 interrupted iterations
+default   [  39% ] 04/10 VUs  2.0s/5.0s
+
+running (03.0s), 09/10 VUs, 0 complete and 0 interrupted iterations
+default   [  59% ] 09/10 VUs  3.0s/5.0s
+
+running (04.0s), 10/10 VUs, 0 complete and 0 interrupted iterations
+default   [  79% ] 10/10 VUs  4.0s/5.0s
+
+running (05.0s), 10/10 VUs, 1 complete and 0 interrupted iterations
+default   [  99% ] 10/10 VUs  5.0s/5.0s
+
+running (06.0s), 06/10 VUs, 5 complete and 0 interrupted iterations
+default ↓ [ 100% ] 10/10 VUs  5s
+
+running (07.0s), 01/10 VUs, 10 complete and 0 interrupted iterations
+default ↓ [ 100% ] 10/10 VUs  5s
+
+running (08.0s), 01/10 VUs, 10 complete and 0 interrupted iterations
+default ↓ [ 100% ] 10/10 VUs  5s
+
+     ✓ Game page: status is 200
+     ✓ Game page: response time < 800ms
+     ✓ Leaderboard page: status is 200
+     ✓ Leaderboard page: response time < 800ms
+
+     checks.........................: 100.00% 132 out of 132
+     data_received..................: 69 kB   8.5 kB/s
+     data_sent......................: 6.0 kB  739 B/s
+     http_req_blocked...............: avg=50.98ms min=3.24µs  med=5.87µs  max=428.38ms p(90)=88.56ms p(95)=90.09ms 
+     http_req_connecting............: avg=40.06ms min=0s      med=0s      max=90.45ms  p(90)=88.41ms p(95)=88.49ms 
+   ✓ http_req_duration..............: avg=88.32ms min=87.61ms med=88.01ms max=97.06ms  p(90)=88.5ms  p(95)=89.61ms 
+       { expected_response:true }...: avg=88.32ms min=87.61ms med=88.01ms max=97.06ms  p(90)=88.5ms  p(95)=89.61ms 
+   ✓ http_req_failed................: 0.00%   0 out of 66
+     http_req_receiving.............: avg=72.31µs min=34.21µs med=70.15µs max=126.88µs p(90)=90.8µs  p(95)=104.21µs
+     http_req_sending...............: avg=42.64µs min=9.45µs  med=25.82µs max=109.09µs p(90)=86.85µs p(95)=95.08µs 
+     http_req_tls_handshaking.......: avg=0s      min=0s      med=0s      max=0s       p(90)=0s      p(95)=0s      
+     http_req_waiting...............: avg=88.2ms  min=87.5ms  med=87.93ms max=96.98ms  p(90)=88.37ms p(95)=89.5ms  
+     http_reqs......................: 66      8.190499/s
+     iteration_duration.............: avg=3.84s   min=3.53s   med=3.79s   max=4.52s    p(90)=3.8s    p(95)=4.16s   
+     iterations.....................: 11      1.365083/s
+     vus............................: 1       min=1          max=10
+     vus_max........................: 10      min=10         max=10
+
+
+running (08.1s), 00/10 VUs, 11 complete and 0 interrupted iterations
+default ✓ [ 100% ] 00/10 VUs  5s
