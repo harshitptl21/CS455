@@ -1,0 +1,9 @@
+http://cs455.000.pe/ Load Time: 0.276 seconds
+http://cs455.000.pe/ Leaderboard Page Load Time: 0.124 seconds
+
+http://1cs455.000.pe/ Load Time: 0.193 seconds
+http://1cs455.000.pe/ Leaderboard Page Load Time: 0.107 seconds
+
+http://cs455-backup.000.pe/ Load Time: 0.205 seconds
+http://cs455-backup.000.pe/ Leaderboard Page Load Time: 0.115 seconds
+
